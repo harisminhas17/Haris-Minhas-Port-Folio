@@ -1,101 +1,87 @@
-import logo from "./logo.png";
-import trektoo from "./company/trektoo.png";
-import church from "./company/church.png";
-import casewise from "./company/casewise.jfif";
-import itworkcenter from "./company/itworkcenter.png"
-import laundry from "./company/laundry.png";
-import hrm from "./company/hrm.png";
-import backend from "./backend.png";
-import creator from "./creator.png";
-import mobile from "./mobile.png";
-import web from "./web.png";
-import github from "./github.png";
+// Profile & Navigation
+import harisMinhas from "./Haris Minhas.png";
 import menu from "./menu.svg";
 import close from "./close.svg";
-import gsap from './tech/gsap.png'
-import framer from './tech/framer.png';
-import css from "./tech/css.png";
-import figma from "./tech/figma.png";
-import gearXpert from './gearXpert.png';
-import project3 from './project3.webp';
-import project2 from './proj1.webp'
-import mysql from './tech/mysql.png';
-import express from './tech/express.png';
-import aws from './tech/aws.png';
-import mui from './tech/mui.png'
-import git from "./tech/git.png";
-import html from "./tech/html.png";
-import javascript from "./tech/javascript.png";
-import mongodb from "./tech/mongodb.png";
-import nodejs from "./tech/nodejs.png";
-import reactjs from "./tech/reactjs.png";
-import redux from "./tech/redux.png";
-import tailwind from "./tech/tailwind.png";
-import threejs from "./tech/threejs.svg";
-import firstTestimonial from './Tars Ken.webp';
-import secondTestimonial from './image.webp';
-import thirdTestimonial from './third testimonial.webp';
-import devloops from './devloops.png';
-import devfor from './devfor.jfif';
+
+// Projects
+import buddy from "./Buddy.png";
+import mrDelivery from "./MrDelivery.jpeg";
+import falahApp from "./Falah App.jpeg";
+import tokenEstate from "./TokenEsate.png";
+import beeSportz from "./Bee Sportz.png";
+import explorerBees from "./Explorer Bees.png";
+
+// Project placeholders (still referenced in experiences/projects)
+import church from "./company/church.png";
+import hrm from "./company/hrm.png";
+import itworkcenter from "./company/itworkcenter.png";
+import laundaryday from './laundaryday.jpeg';
 import trektooicon from './trektooicon.jfif';
 import mightymedia from './mightymedia.jfif';
-import itwork from './itwork.jfif';
-import laundaryday from './laundaryday.jpeg';
-import laravel from './laravel.png';
+
+// Services
+import web from "./web.png";
+import mobile from "./mobile.png";
+import backend from "./backend.png";
+import creator from "./creator.png";
+
+// Tech Icons
+import html from "./tech/html.png";
+import css from "./tech/css.png";
+import javascript from "./tech/javascript.png";
+import reactjs from "./tech/reactjs.png";
+import threejs from "./tech/threejs.svg";
+import tailwind from "./tech/tailwind.png";
+import mui from './tech/mui.png';
+import aws from './tech/aws.png';
+import mysql from './tech/mysql.png';
+import github from "./github.png";
 import php from './php.png';
+import laravel from './laravel.png';
 import nextjs from './nextjs.png';
 import python from './python.png';
-import casewiselogo from './casewiselogo.jfif';
-
-
 
 export {
-  casewiselogo,
-  python,
-  laravel,
-  php,
-  nextjs,
-  casewise,
-  logo,
-  itwork,
-  mightymedia,
-  devfor,
-  trektooicon,
-  laundaryday,
-  backend,
-  trektoo,
-   church,
-  creator,
-  mobile,
-  web,
-  github,
+  // Profile & Navigation
+  harisMinhas,
   menu,
   close,
-  css,
-  gearXpert,
-  project2,
-  project3,
-  mysql,
-  express,
-  aws,
-  mui,
-  firstTestimonial,
-  secondTestimonial,
-  thirdTestimonial,
-  gsap,
-  framer,
-  figma,
-  git,
-  devloops,
+  
+  // Projects
+  buddy,
+  mrDelivery,
+  falahApp,
+  tokenEstate,
+  beeSportz,
+  explorerBees,
+  
+  // Experience/Project placeholders
+  church,
+  hrm,
+  itworkcenter,
+  laundaryday,
+  trektooicon,
+  mightymedia,
+  
+  // Services
+  web,
+  mobile,
+  backend,
+  creator,
+  
+  // Tech Icons
   html,
+  css,
   javascript,
-  mongodb,
-  nodejs,
   reactjs,
-  redux,
-  tailwind,
- hrm,
   threejs,
-laundry,
-  itworkcenter
+  tailwind,
+  mui,
+  aws,
+  mysql,
+  github,
+  php,
+  laravel,
+  nextjs,
+  python,
 };

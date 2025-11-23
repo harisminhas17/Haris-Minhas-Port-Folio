@@ -5,7 +5,6 @@ import {
   FaLinkedin,
   FaTwitter,
   FaFacebook,
-  FaUpwork,
 } from "react-icons/fa6";
 
 const Footer = () => {
@@ -16,7 +15,7 @@ const Footer = () => {
         <div>
           <h3 className="text-lg font-semibold mb-2">About Me</h3>
           <p>
-           I'm Ahmad, a Full Stack Developer turning complex ideas into smart, scalable digital solutions. I don’t just code — I bend computers to my will.
+           I'm Haris Minhas, a Full Stack Developer who turns complex ideas into smart, scalable digital solutions. I don't just write code — I design systems that work intelligently and efficiently.
           </p>
         </div>
 
@@ -25,7 +24,7 @@ const Footer = () => {
           <h3 className="text-lg font-semibold mb-2">Follow Me</h3>
           <div className="flex gap-4 mt-2">
             <a
-              href="https://github.com/ahmed-raza012003"
+              href="https://github.com/harisminhas17"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-gray-400"
@@ -33,7 +32,7 @@ const Footer = () => {
               <FaGithub size={20} />
             </a>
             <a
-              href="https://www.linkedin.com/in/ahmed-raza-b3a67b249/"
+              href="https://www.linkedin.com/in/haris-minhas-68693b2ba?utm_source=share_via&utm_content=profile&utm_medium=member_android"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-blue-400"
@@ -41,16 +40,7 @@ const Footer = () => {
               <FaLinkedin size={20} />
             </a>
             <a
-              href="https://www.upwork.com/freelancers/~01c4f352c2906a37ea"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-green-500"
-            >
-              <FaUpwork size={20} />
-            </a>
-            
-            <a
-              href="https://www.instagram.com/codewithahmad._?igsh=anA3cTdtdmVlanBx"
+              href="https://www.instagram.com/harisminhas.5?igsh=MTB0dWd1amF1ajhkeA=="
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-pink-400"
@@ -68,14 +58,14 @@ const Footer = () => {
         {/* Contact Section */}
         <div>
           <h3 className="text-lg font-semibold mb-2">Contact</h3>
-          <p>Email: ahmedraza01272003@gmail.com</p>
-          <p>Location: Rahim Yar Khan, Pakistan</p>
+          <p>Email: harisminhas0017@gmail.com</p>
+          <p>Location: Old Airport Road ATS, Chaklala Cantt Rawalpindi</p>
         </div>
       </div>
 
       {/* Bottom Line */}
       <div className="mt-8 border-t border-gray-700 pt-4 text-center text-xs text-gray-400">
-        © {new Date().getFullYear()} Ahmed Raza. All rights reserved.
+        © {new Date().getFullYear()} Haris Minhas. All rights reserved.
       </div>
     </footer>
   );

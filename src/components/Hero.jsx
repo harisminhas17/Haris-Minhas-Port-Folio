@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { ComputersCanvas } from "./canvas";
+import { harisMinhas } from "../assets";
 
 const Hero = () => {
   return (
@@ -13,9 +14,19 @@ const Hero = () => {
           <div className="w-1 sm:h-80 h-40 violet-gradient" />
         </div>
 
-        <div className="mt-28 md:mt-5 lg:5">
+        <div className="mt-28 md:mt-5 lg:5 flex flex-col items-start">
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="mb-5"
+          >
+            <img
+              src={harisMinhas}
+              alt="Haris Minhas"
+              className="w-32 h-32 rounded-full border-4 border-[#915EFF] object-cover shadow-lg"
+            />
+          </motion.div>
           <h1 className={`${styles.heroHeadText} text-white`}>
-            Hi, I'm <span className="text-[#915EFF]">Ahmad</span>
+            Hi, I'm <span className="text-[#915EFF]">Haris Minhas</span>
           </h1>
           <p className={`${styles.heroSubText} mt-2 text-white-100`}>
             Building reliable and <br />

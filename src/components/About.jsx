@@ -80,7 +80,7 @@ const About = () => {
 
    <div className="mt-8">
           <a
-            href={`https://wa.me/+923048237137`}
+            href={`https://wa.me/+923165461537`}
             target="_blank"
             rel="noopener noreferrer"
             className="bg-green-500 py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary"

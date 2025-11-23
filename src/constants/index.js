@@ -1,59 +1,47 @@
 
 import {
-  logo,
-  trektoo,
-  hrm,
-  itworkcenter,
-  laundry,
-  backend,
-  creator,
-  mobile,
-  web,
-  github,
+  // Navigation
   menu,
   close,
-  css,
-  gearXpert,
-  project2,
-  project3,
-  mysql,
-  express,
-  aws,
-  mui,
-  devloops,
-  gsap,
-  framer,
-  figma,
-  git,
-  html,
-  javascript,
-  mongodb,
-  nodejs,
-  reactjs,
-  redux,
-  tailwind,
-  threejs,
-  firstTestimonial,
-  secondTestimonial,
-  thirdTestimonial,
+  
+  // Projects
+  buddy,
+  mrDelivery,
+  falahApp,
+  tokenEstate,
+  beeSportz,
+  explorerBees,
+  
+  // Experience/Project placeholders
   church,
-  itwork,
-  mightymedia,
-  devfor,
-  trektooicon,
+  hrm,
+  itworkcenter,
   laundaryday,
-  // github,
-  laravel,
+  trektooicon,
+  mightymedia,
+  
+  // Services
+  web,
+  mobile,
+  backend,
+  creator,
+  
+  // Tech Icons
+  html,
+  css,
+  javascript,
+  reactjs,
+  threejs,
+  tailwind,
+  mui,
+  aws,
+  mysql,
+  github,
   php,
+  laravel,
   nextjs,
-  casewise,
   python,
-  casewiselogo,
-} from '../assets'
-
-
-// Import Tekisky separately
-import tekisky from "../assets/company/tekisky.png";
+} from '../assets';
 
 
 export const navLinks = [
@@ -76,11 +64,11 @@ export const navLinks = [
 
 const services = [
   {
-    title: "Full-Stack Web Developer (Laravel & React)",
+    title: "Full-Stack Web Developer (Laravel & ReactJS)",
     icon: web,
   },
   {
-    title: "AI Chatbot & NLP Developer (Python)",
+    title: "AI Chatbot & ML Model Training",
     icon: mobile,
   },
   {
@@ -88,7 +76,7 @@ const services = [
     icon: backend,
   },
   {
-    title: "Relational Database Designer (MySQL)",
+    title: "DataBase Designer (MYSQL, Postgres, MongoDB)",
     icon: creator,
   },
 ];
@@ -157,86 +145,94 @@ const technologies = [
 
 const experiences = [
   {
-    title: "Project Manager & Full Stack Developer",
-    company_name: "Devloop Technologies",
-  icon: devloops,
-      iconBg: "#383E56",
-    date: "Feb 2025 - Present",
-    points: [
-      "Leading Laravel-based SaaS and enterprise application projects.",
-      "Managing teams for HRM systems, dashboards, and subscriptions.",
-      "Implementing scalable backend architecture and payment gateways.",
-    ],
-  },
-  {
-    title: "Full Stack Developer",
-    company_name: "Trektoo",
-    icon: trektooicon || "TK", // fallback to initials
+    title: "Bee Sportz",
+    company_name: "Bee Sportz",
+    icon: beeSportz || "BS",
     iconBg: "#E6DEDD",
-    date: "Apr 2025 - Present",
+    date: "Sept 2025 - Present",
     points: [
-      "Built travel platform with React, Next.js, and Laravel.",
-      "Developed SEO-friendly interfaces and booking flows.",
-      "Collaborated with Mahmood Ahmad and team.",
+      "Developing a sports platform for events, bookings, and user interactions.",
+      "Implementing dashboards, APIs, and dynamic modules using Laravel and React.",
+      "Working on payment integration, notifications, and real-time updates.",
+      "Collaborating with the team to build scalable, high-performance features.",
     ],
   },
   {
-    title: "Full Stack Developer",
-    company_name: "LaundryDay",
-    icon: laundaryday || "LD",
-    iconBg: "#F0F0F0",
-    date: "Jan 2025 - Present",
+    title: "Token Estate",
+    company_name: "Token Estate",
+    icon: tokenEstate || "TE",
+    iconBg: "#383E56",
+    date: "June 2025 - August 2025",
     points: [
-      "Created Laravel-based admin panel for laundry logistics.",
-      "Integrated real-time tracking with Google Maps.",
-      "Worked with Suleman Abrar on service forms and timing.",
+      "Built a blockchain-based property management platform using MongoDB and smart contracts.",
+      "Enabled users to register, tokenize, and manage digital property assets.",
+      "Developed dashboards and APIs for secure property transactions.",
+      "Implemented authentication, user roles, and property tracking modules.",
     ],
   },
   {
-title: "Full Stack Developer",
-    company_name: "Casewise (FYP)",
-    icon: casewiselogo || "TK",
-    iconBg: "#E6DEDD",
-    date: "Jan 2025 - Present",
-    points: [
-     "Developing AI-powered legal services platform using React.js and Laravel.",
-    "Integrated TF-IDF + Naive Bayes law matcher and chatbot using Python Flask.",
-    "Implemented role-based access, lawyer/case modules, scheduling, and law filtering.",
-    ],
-  },
- 
- {
-    title: "Full Stack Developer",
-    company_name: "Devfor",
-    icon: devfor || "DF",
-    iconBg: "#E6DEDD",
-    date: "Dec 2024 -  Jan 2025",
-    points: [
-      "Developed dynamic Laravel modules for business applications.",
-      "Built dashboards, APIs, and authentication flows.",
-      "Worked closely with clients to build custom solutions.",
-    ],
-  },
-    {
-    title: "Full Stack Developer Intern",
-    company_name: "Mighty Media Technologies, RYK",
-    icon: mightymedia,
-    iconBg: "#DDEEFF",
-    date: "Sept 2024 – Oct 2024",
-    points: [
-      "Worked on frontend components using Blade and Tailwind.",
-      "Assisted in building admin panels and integrating Laravel APIs.",
-    ],
-  },
-  {
-    title: "Apprenticeship (Web Development)",
-    company_name: "IT Work Center, RYK",
-    icon: itwork,
+    title: "Falah App",
+    company_name: "Falah App",
+    icon: falahApp || "FA",
     iconBg: "#FFEFDD",
-    date: "Apr 2024 – Aug 2024",
+    date: "June 2025",
     points: [
-      "Learned core concepts of PHP, Laravel, and MVC architecture.",
-      "Built small web applications under mentorship.",
+      "Developed an SOS alert and service booking platform for NGOs, lawyers, and therapists.",
+      "Implemented appointment scheduling, role-based access, and service management.",
+      "Integrated notifications for alerts and bookings.",
+      "Focused on real-time functionality and secure data handling.",
+    ],
+  },
+  {
+    title: "Buddy App",
+    company_name: "Buddy App",
+    icon: buddy || "BA",
+    iconBg: "#DDEEFF",
+    date: "March 2025 - May 2025",
+    points: [
+      "Created a gig-based application connecting customers with nearby workers.",
+      "Implemented dynamic bidding system with location-based filtering.",
+      "Developed real-time notifications and automated bid radius expansion.",
+      "Integrated payment and wallet system for transactions between users and workers.",
+    ],
+  },
+  {
+    title: "Mr. Delivery",
+    company_name: "Mr. Delivery",
+    icon: laundaryday || "MD",
+    iconBg: "#F0F0F0",
+    date: "Nov 2024 - Feb 2025",
+    points: [
+      "Developed and enhanced a delivery management platform using Laravel.",
+      "Implemented booking, rider assignment, and real-time tracking features.",
+      "Integrated notifications, wallet system, and payment gateway for smooth transactions.",
+      "Built dashboards for admin, riders, and customers to monitor deliveries.",
+    ],
+  },
+  {
+    title: "Software Testing Intern",
+    company_name: "Ensyd Technologies Pvt Ltd",
+    icon: mightymedia || "ET",
+    iconBg: "#E6DEDD",
+    date: "Sept 2024 - Oct 2024",
+    points: [
+      "Conducted software testing for Anaar Multi-Tenant Application.",
+      "Performed functional, integration, and system testing.",
+      "Documented bugs and collaborated with developers to ensure timely fixes.",
+      "Assisted in improving application performance and reliability.",
+    ],
+  },
+  {
+    title: "Travel App (FYP)",
+    company_name: "Travel App (FYP)",
+    icon: trektooicon || "TA",
+    iconBg: "#383E56",
+    date: "March 2024 - Aug 2024",
+    points: [
+      "Developed a travel booking application using Laravel and React.",
+      "Implemented user-friendly booking flows and interactive dashboards.",
+      "Integrated payment gateway and location-based services for smooth travel experience.",
+      "Optimized frontend for SEO and performance.",
     ],
   },
 ];
@@ -244,26 +240,26 @@ title: "Full Stack Developer",
 const testimonials = [
   {
     testimonial:
-      "Ahmad helped us scale our travel booking app with clean React code and well-integrated Laravel APIs. His full stack expertise and proactive approach were instrumental in streamlining our platform.",
-    name: "Mahmood Ahmad",
+      "Haris Minhas helped us build and scale our Buddy application with clean React code and well-integrated Laravel APIs. His full stack expertise and proactive approach were instrumental in creating a seamless user experience.",
+    name: "Client",
+    designation: "Project Manager",
+    company: "Buddy Application",
+    
+  },
+  {
+    testimonial:
+      "Haris Minhas built a robust delivery management system for MR Delivery from scratch with advanced admin features, real-time tracking, and seamless user flows. He exceeded our expectations with his technical skills.",
+    name: "Client",
     designation: "Founder",
-    company: "Trektoo",
+    company: "MR Delivery",
     
   },
   {
     testimonial:
-      "Ahmad built a robust laundry management system from scratch with advanced admin features, real-time tracking, and seamless user flows. He exceeded our expectations.",
-    name: "Suleman Abrar",
-    designation: "App Developer",
-    company: "LaundryDay",
-    
-  },
-  {
-    testimonial:
-      "Ahmad delivered high-quality work on time for my e-commerce clients. His freelance support and Laravel expertise made a big difference in our business growth.",
-    name: "Hamza Tariq",
-    designation: "Freelance Client",
-    company: "Self-Employed",
+      "Haris Minhas delivered high-quality work on time for our Falah app. His Laravel expertise and attention to detail made a significant difference in our application's performance and user satisfaction.",
+    name: "Client",
+    designation: "Project Lead",
+    company: "Falah App",
     
   },
 ];
@@ -271,84 +267,95 @@ const testimonials = [
 
 const projects = [
  {
-  name: "CaseWise AI Law Firm",
+  name: "Buddy App",
   description:
-    "Built a smart legal assistant platform with AI chatbot integration to analyze user input, match legal sections, and suggest lawyers based on case categories.",
+    "Built an intelligent service-matching platform (Buddy App) that connects customers with nearby workers using real-time bidding, smart job recommendations, and automated notifications. Integrated location-based filters, radius expansion logic, and a streamlined booking workflow for fast worker assignment.",
   tags: [
     { name: "laravel", color: "red-text-gradient" },
     { name: "react", color: "blue-text-gradient" },
-    { name: "python", color: "green-text-gradient" },
-    // { name: "flask", color: "orange-text-gradient" },
-    { name: "machine-learning", color: "pink-text-gradient" },
+    { name: "php", color: "green-text-gradient" },
     { name: "mysql", color: "purple-text-gradient" },
+    { name: "google-maps", color: "orange-text-gradient" },
+    { name: "firebase-notifications", color: "pink-text-gradient" },
   ],
-  image: casewise, // Show "Image not available" in frontend
-  source_code_link: "https://github.com/", // Replace with actual link
+  image: buddy,
+  source_code_link: "https://github.com/",
 },
 
   {
-    name: "LaundryDay Admin Panel",
+    name: "MrDelivery App",
     description:
-      "Developed a complete laundry management system with admin and vendor roles. Features include Google Maps tracking, subscriptions, and order management.",
+      "Developed a complete on-demand delivery platform (MrDelivery App) where customers can book riders for parcel pickup and drop-off. Implemented real-time rider posting, bidding-style request acceptance, wallet system with PayMob payments, multi-language support, and automated booking workflows. Integrated push notifications and a comprehensive driver earnings module.",
     tags: [
       { name: "laravel", color: "red-text-gradient" },
-      { name: "spatie", color: "green-text-gradient" },
-      { name: "breeze", color: "blue-text-gradient" },
-      { name: "javascript", color: "orange-text-gradient" },
-      { name: "google-maps", color: "pink-text-gradient" },
+      { name: "react-native", color: "blue-text-gradient" },
+      { name: "php", color: "green-text-gradient" },
+      { name: "mysql", color: "purple-text-gradient" },
+      { name: "firebase", color: "orange-text-gradient" },
+      { name: "paymob", color: "pink-text-gradient" },
+      { name: "google-maps", color: "yellow-text-gradient" },
     ],
-    image: laundry, // Show "Image not available" in frontend
+    image: mrDelivery,
     source_code_link: "https://github.com/",
   },
   {
-    name: "Trektoo Hotel Booking Module",
+    name: "Falah App",
     description:
-      "Currently building a hotel booking module for Trektoo’s travel platform using Laravel and React, focusing on room listings, booking flow, filters, and availability logic.",
+      "Built a safety and assistance platform (Falah App) that sends SOS alerts to registered NGOs and organizations. Integrated real-time emergency notifications, role-based dashboards, and appointment booking with lawyers and therapists. Implemented automated database seeding, secure authentication, and a smooth workflow for users to request urgent help and schedule professional support.",
     tags: [
       { name: "laravel", color: "red-text-gradient" },
-      { name: "reactjs", color: "blue-text-gradient" },
-            { name: "nextjs", color: "orange-text-gradient" },
-      { name: "mysql", color: "green-text-gradient" },
+      { name: "react", color: "blue-text-gradient" },
+      { name: "php", color: "green-text-gradient" },
+      { name: "mysql", color: "purple-text-gradient" },
+      { name: "notifications", color: "orange-text-gradient" },
+      { name: "sos-system", color: "pink-text-gradient" },
     ],
-    image: trektoo, // Under development — no image
+    image: falahApp,
     source_code_link: "https://github.com/",
   },
   {
-    name: "Multi-Tenant System (Church Site)",
+    name: "TokenEstate",
     description:
-      "A multi-tenant platform for churches, offering role-based access, multiple payment gateways, and subscription-based access for different features.",
+      "Developed a blockchain-based real estate platform (TokenEstate) where physical properties are converted into digital tokenized assets. Implemented secure user registration, property listing workflows, and a MongoDB-backed data layer. Integrated blockchain logic for asset representation, enabling users to explore, manage, and interact with tokenized property data in a modern web interface.",
     tags: [
-      { name: "laravel", color: "red-text-gradient" },
-      { name: "breeze", color: "blue-text-gradient" },
-      { name: "stripe", color: "green-text-gradient" },
+      { name: "nodejs", color: "green-text-gradient" },
+      { name: "blockchain", color: "blue-text-gradient" },
+      { name: "mongodb", color: "purple-text-gradient" },
+      { name: "web3", color: "orange-text-gradient" },
+      { name: "javascript", color: "yellow-text-gradient" },
+      { name: "tokenization", color: "pink-text-gradient" },
     ],
-    image: church,
+    image: tokenEstate,
     source_code_link: "https://github.com/",
   },
   {
-    name: "IT Work Center Website",
+    name: "Explorer Bees",
     description:
-      "A complete software house and training center portal featuring student enrollment, role-based dashboards, fee management, attendance tracking, and HR salary management.",
+      "Contributed to Explorer Bees, an educational and activity-based learning platform for kids. Worked on improving content flow, optimizing backend logic, and enhancing user experience. Implemented feature updates, fixed bugs, refined API responses, and ensured smooth navigation across learning modules, quizzes, and interactive activities. Helped maintain platform stability and performance.",
     tags: [
       { name: "laravel", color: "red-text-gradient" },
       { name: "php", color: "blue-text-gradient" },
       { name: "mysql", color: "green-text-gradient" },
+      { name: "react", color: "purple-text-gradient" },
+      { name: "education-tech", color: "orange-text-gradient" },
+      { name: "api-integration", color: "pink-text-gradient" },
     ],
-    image: itworkcenter,
+    image: explorerBees,
     source_code_link: "https://github.com/",
   },
   {
-    name: "HRM System (Devfor)",
+    name: "Bee Sportz",
     description:
-      "An internal HRM solution with leave management, salary calculation, attendance (check-in/check-out), and employee detail management developed during Devfor employment.",
+      "Working on Bee Sportz, a sports management and analytics platform. Implementing real-time player performance tracking, match statistics, and automated data processing with AI-assisted insights. Enhancing backend APIs, optimizing database structure, and improving admin dashboards for better team, event, and score management. Contributing to feature development, bug fixes, and overall system stability.",
     tags: [
       { name: "laravel", color: "red-text-gradient" },
-      { name: "bootstrap", color: "blue-text-gradient" },
-            { name: "mysql", color: "green-text-gradient" },
-      { name: "filament", color: "orange-text-gradient" },
-
+      { name: "php", color: "blue-text-gradient" },
+      { name: "mysql", color: "green-text-gradient" },
+      { name: "react", color: "purple-text-gradient" },
+      { name: "sports-analytics", color: "orange-text-gradient" },
+      { name: "api-development", color: "pink-text-gradient" },
     ],
-    image: hrm,
+    image: beeSportz,
     source_code_link: "https://github.com/",
   },
  
