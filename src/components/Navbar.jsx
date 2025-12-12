@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 
 import { styles } from "../styles";
 import { navLinks } from "../constants";
@@ -28,7 +29,7 @@ const Navbar = () => {
   return (
     <nav
       className={`${styles.paddingX
-        } w-full flex items-center py-5 fixed z-20 transition-all duration-500 ease-in-out ${scrolled
+        } w-full flex items-center py-5 fixed z-50 transition-all duration-500 ease-in-out ${scrolled
           ? "glass-effect top-4 rounded-full max-w-7xl mx-auto left-0 right-0 shadow-[0_5px_30px_-15px_rgba(145,94,255,0.4)] border border-[#915EFF]/20 py-3"
           : "bg-transparent top-0"
         }`}
@@ -75,26 +76,33 @@ const Navbar = () => {
             onClick={() => setToggle(!toggle)}
           />
 
-          <div
-            className={`${!toggle ? "hidden" : "flex"
-              } p-6 glass-effect absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-2xl border border-white/10 shadow-[0_5px_20px_rgba(0,0,0,0.5)]`}
-          >
-            <ul className='list-none flex justify-end items-start flex-1 flex-col gap-4'>
-              {navLinks.map((nav) => (
-                <li
-                  key={nav.id}
-                  className={`font-poppins font-medium cursor-pointer text-[16px] ${active === nav.title ? "text-white" : "text-secondary"
-                    }`}
-                  onClick={() => {
-                    setToggle(!toggle);
-                    setActive(nav.title);
-                  }}
-                >
-                  <a href={`#${nav.id}`}>{nav.title}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <AnimatePresence>
+            {toggle && (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95, y: -20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95, y: -20 }}
+                transition={{ duration: 0.2, ease: "easeOut" }}
+                className="p-6 glass-effect absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-2xl border border-white/10 shadow-[0_5px_20px_rgba(0,0,0,0.5)]"
+              >
+                <ul className='list-none flex justify-end items-start flex-1 flex-col gap-4'>
+                  {navLinks.map((nav) => (
+                    <li
+                      key={nav.id}
+                      className={`font-poppins font-medium cursor-pointer text-[16px] ${active === nav.title ? "text-white" : "text-secondary"
+                        }`}
+                      onClick={() => {
+                        setToggle(!toggle);
+                        setActive(nav.title);
+                      }}
+                    >
+                      <a href={`#${nav.id}`}>{nav.title}</a>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </div>
     </nav>

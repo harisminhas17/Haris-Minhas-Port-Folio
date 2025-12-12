@@ -5,7 +5,7 @@ import emailjs from "@emailjs/browser";
 import { styles } from "../styles";
 
 import { SectionWrapper } from "../hoc";
-import { slideIn } from "../utils/motion";
+import { zoomIn } from "../utils/motion";
 
 const Contact = () => {
   const formRef = useRef();
@@ -66,7 +66,7 @@ const Contact = () => {
   return (
     <div className={`xl:mt-12 flex justify-center overflow-hidden`}>
       <motion.div
-        variants={slideIn("left", "tween", 0.2, 1)}
+        variants={zoomIn(0.2, 0.5)}
         className='flex-[0.75] lg:max-w-2xl glass-effect p-8 rounded-2xl relative overflow-hidden'
       >
         <div className="absolute top-0 right-0 w-32 h-32 bg-[#915EFF] opacity-10 blur-[60px] rounded-full pointer-events-none"></div>

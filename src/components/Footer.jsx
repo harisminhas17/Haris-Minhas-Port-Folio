@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import {
   FaInstagram,
   FaGithub,
@@ -29,30 +30,71 @@ const Footer = () => {
         <div className="flex flex-col gap-4 md:items-center">
           <h3 className="text-xl font-bold text-white tracking-wide border-b-2 border-[#915EFF] w-fit pb-1">Follow Me</h3>
           <div className="flex gap-6 mt-2">
-            <a
+            <motion.a
               href="https://github.com/harisminhas17"
               target="_blank"
               rel="noopener noreferrer"
-              className="group p-3 glass-effect rounded-full hover:bg-[#915EFF] transition-all duration-300 hover:scale-110 hover:shadow-[0_0_20px_#915EFF]"
+              whileHover={{ scale: 1.2, rotate: 5, backgroundColor: "#915EFF" }}
+              whileTap={{ scale: 0.9 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: [0, -8, 0] }}
+              transition={{
+                y: {
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                },
+                opacity: { duration: 0.5 },
+                backgroundColor: { duration: 0.3 }
+              }}
+              className="group p-3 glass-effect rounded-full hover:shadow-[0_0_20px_#915EFF] border border-white/10"
             >
-              <FaGithub size={24} className="text-white group-hover:text-white" />
-            </a>
-            <a
+              <FaGithub size={24} className="text-white" />
+            </motion.a>
+            <motion.a
               href="https://www.linkedin.com/in/haris-minhas-68693b2ba?utm_source=share_via&utm_content=profile&utm_medium=member_android"
               target="_blank"
               rel="noopener noreferrer"
-              className="group p-3 glass-effect rounded-full hover:bg-[#0077b5] transition-all duration-300 hover:scale-110 hover:shadow-[0_0_20px_#0077b5]"
+              whileHover={{ scale: 1.2, rotate: -5, backgroundColor: "#0077b5" }}
+              whileTap={{ scale: 0.9 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: [0, -8, 0] }}
+              transition={{
+                y: {
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.2
+                },
+                opacity: { duration: 0.5, delay: 0.1 },
+                backgroundColor: { duration: 0.3 }
+              }}
+              className="group p-3 glass-effect rounded-full hover:shadow-[0_0_20px_#0077b5] border border-white/10"
             >
-              <FaLinkedin size={24} className="text-white group-hover:text-white" />
-            </a>
-            <a
+              <FaLinkedin size={24} className="text-white" />
+            </motion.a>
+            <motion.a
               href="https://www.instagram.com/harisminhas.5?igsh=MTB0dWd1amF1ajhkeA=="
               target="_blank"
               rel="noopener noreferrer"
-              className="group p-3 glass-effect rounded-full hover:bg-[#E1306C] transition-all duration-300 hover:scale-110 hover:shadow-[0_0_20px_#E1306C]"
+              whileHover={{ scale: 1.2, rotate: 5, backgroundColor: "#E1306C" }}
+              whileTap={{ scale: 0.9 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: [0, -8, 0] }}
+              transition={{
+                y: {
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.4
+                },
+                opacity: { duration: 0.5, delay: 0.2 },
+                backgroundColor: { duration: 0.3 }
+              }}
+              className="group p-3 glass-effect rounded-full hover:shadow-[0_0_20px_#E1306C] border border-white/10"
             >
-              <FaInstagram size={24} className="text-white group-hover:text-white" />
-            </a>
+              <FaInstagram size={24} className="text-white" />
+            </motion.a>
           </div>
         </div>
 

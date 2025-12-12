@@ -5,8 +5,8 @@ import { harisMinhas } from "../assets";
 
 const Hero = () => {
   return (
-    <section className="relative w-full h-screen mx-auto flex flex-col justify-center items-center">
-      <div className={`max-w-7xl mx-auto ${styles.paddingX} flex flex-col justify-center items-center gap-5 z-10`}>
+    <section className="relative w-full min-h-screen mx-auto flex flex-col items-center">
+      <div className={`max-w-7xl mx-auto ${styles.paddingX} pt-32 pb-12 flex flex-col justify-center items-center gap-5 z-10`}>
         <div className="flex flex-col justify-center items-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.5 }}
@@ -37,7 +37,7 @@ const Hero = () => {
 
       {/* Scroll Down Button */}
       {/* Sci-Fi HUD Scroll Indicator */}
-      <div className="absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center">
+      <div className="w-full flex justify-center items-center pb-10">
         <a href='#about'>
           <div className='relative w-[80px] h-[80px] flex justify-center items-center group cursor-pointer'>
             {/* Outer Rotating Dashed Ring */}
