@@ -22,20 +22,20 @@ const ExperienceCard = ({ experience }) => {
       contentArrowStyle={{ borderRight: "7px solid  #232631" }}
       date={experience.date}
       iconStyle={{ background: experience.iconBg }}
-     icon={
- <div className="flex justify-center items-center w-full h-full">
-  <img
-    src={experience.icon}
-    alt={experience.company_name}
-    className="w-[90%] h-[90%] object-contain"
-    style={{ borderRadius: "50%" }}
-    onError={(e) => {
-      console.error(`Failed to load image: ${experience.icon}`);
-      e.target.src = "https://via.placeholder.com/48"; // Fallback image
-    }}
-  />
-</div>
-}
+      icon={
+        <div className="flex justify-center items-center w-full h-full">
+          <img
+            src={experience.icon}
+            alt={experience.company_name}
+            className="w-[90%] h-[90%] object-contain"
+            style={{ borderRadius: "50%" }}
+            onError={(e) => {
+              console.error(`Failed to load image: ${experience.icon}`);
+              e.target.src = "https://via.placeholder.com/48"; // Fallback image
+            }}
+          />
+        </div>
+      }
 
     >
       <div>
@@ -65,7 +65,21 @@ const ExperienceCard = ({ experience }) => {
 const Experience = () => {
   return (
     <>
-      <motion.div variants={textVariant()}>
+      <motion.div variants={{
+        hidden: {
+          y: -50,
+          opacity: 0,
+        },
+        show: {
+          y: 0,
+          opacity: 1,
+          transition: {
+            type: "spring",
+            duration: 0.5,
+            delay: 0,
+          },
+        },
+      }}>
         <p className={`${styles.sectionSubText} text-center`}>
           What I have done so far
         </p>

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { Tilt } from "react-tilt";
+
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -24,48 +24,43 @@ const ProjectCard = ({
   useEffect(() => {
     const el = cardRef.current;
 
-    // ScrollTrigger for animating project cards with stagger
     gsap.fromTo(
       el,
       {
         opacity: 0,
-        y: 100, // Start off-screen
+        y: 50,
       },
       {
         opacity: 1,
         y: 0,
         scrollTrigger: {
           trigger: el,
-          start: "top bottom",  // Trigger when the top of the element hits the bottom of the viewport
-          end: "top center",    // End when the top reaches the center of the viewport
-          scrub: true,          // Smoothly sync scroll and animation
-          markers: false,       // Set to `true` to see debug markers
+          start: "top 90%",
+          end: "top 60%",
+          scrub: 1,
         },
       }
     );
   }, []);
 
   return (
-    <div ref={cardRef}>
-      <Tilt
-        options={{
-          max: 45,
-          scale: 1,
-          speed: 450,
-        }}
-        className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full"
+    <div ref={cardRef} className="h-full">
+      <div
+        className="glass-effect p-5 rounded-2xl w-full h-full flex flex-col transform transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_25px_rgba(145,94,255,0.2)] border border-white/10 relative group"
       >
-        <div className="relative w-full h-[230px]">
+        <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl pointer-events-none"></div>
+
+        <div className="relative w-full h-[230px] overflow-hidden rounded-2xl">
           <img
             src={image}
             alt="project_image"
-            className="w-full h-full object-cover object-left rounded-2xl"
+            className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
           />
 
           <div className="absolute inset-0 flex justify-end m-3 card-img_hover">
             <div
               onClick={() => window.open(source_code_link, "_blank")}
-              className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer"
+              className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer hover:bg-slate-800 transition-colors border border-white/20"
             >
               <img
                 src={github}
@@ -76,22 +71,22 @@ const ProjectCard = ({
           </div>
         </div>
 
-        <div className="mt-5">
-          <h3 className="text-white font-bold text-[24px]">{name}</h3>
-          <p className="mt-2 text-secondary text-[14px]">{description}</p>
+        <div className="mt-5 flex-grow">
+          <h3 className="text-white font-bold text-[24px] tracking-wide group-hover:text-[#915EFF] transition-colors">{name}</h3>
+          <p className="mt-2 text-secondary text-[14px] leading-relaxed line-clamp-4">{description}</p>
         </div>
 
-        <div className="mt-4 flex flex-wrap gap-2">
+        <div className="mt-5 flex flex-wrap gap-2 pt-4 border-t border-white/5">
           {tags.map((tag) => (
             <p
               key={`${name}-${tag.name}`}
-              className={`text-[14px] ${tag.color}`}
+              className={`text-[12px] font-medium px-2 py-1 rounded-md bg-black-200 ${tag.color}`}
             >
               #{tag.name}
             </p>
           ))}
         </div>
-      </Tilt>
+      </div>
     </div>
   );
 };

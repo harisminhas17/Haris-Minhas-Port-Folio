@@ -3,7 +3,7 @@ import {
   // Navigation
   menu,
   close,
-  
+
   // Projects
   buddy,
   mrDelivery,
@@ -11,7 +11,7 @@ import {
   tokenEstate,
   beeSportz,
   explorerBees,
-  
+
   // Experience/Project placeholders
   church,
   hrm,
@@ -19,13 +19,13 @@ import {
   laundaryday,
   trektooicon,
   mightymedia,
-  
+
   // Services
   web,
   mobile,
   backend,
   creator,
-  
+
   // Tech Icons
   html,
   css,
@@ -50,7 +50,7 @@ export const navLinks = [
   {
     id: "about",
     title: "About",
-    
+
   },
   {
     id: "work",
@@ -64,20 +64,24 @@ export const navLinks = [
 
 const services = [
   {
-    title: "Full-Stack Web Developer (Laravel & ReactJS)",
+    title: "Full Stack Developer",
     icon: web,
+    description: "Building end-to-end web applications with seamless integration and high performance.",
   },
   {
-    title: "AI Chatbot & ML Model Training",
+    title: "AI & ML Solutions",
     icon: mobile,
+    description: "Developing intelligent models and chatbots to automate processes and deliver insights.",
   },
   {
-    title: "Backend Architect & API Developer",
+    title: "Backend Architecture",
     icon: backend,
+    description: "Designing robust, scalable server-side systems for data-intensive applications.",
   },
   {
-    title: "DataBase Designer (MYSQL, Postgres, MongoDB)",
+    title: "Database Design",
     icon: creator,
+    description: "Optimizing data schemas and storage solutions for reliability and speed.",
   },
 ];
 
@@ -87,7 +91,7 @@ const technologies = [
     name: "HTML 5",
     icon: html,
   },
-   
+
   {
     name: "CSS 3",
     icon: css,
@@ -111,33 +115,33 @@ const technologies = [
   {
     name: "Material Ui",
     icon: mui,
-  }, 
+  },
   {
     name: "AWS",
     icon: aws,
-  }, 
+  },
   {
     name: "MySql",
     icon: mysql,
   },
- 
-   {
+
+  {
     name: "Github",
     icon: github,
   },
-   {
+  {
     name: "php",
     icon: php,
   },
-   {
+  {
     name: "laravel",
     icon: laravel,
   },
-   {
+  {
     name: "nextjs",
     icon: nextjs,
   },
- {
+  {
     name: "python",
     icon: python,
   },
@@ -244,7 +248,7 @@ const testimonials = [
     name: "Client",
     designation: "Project Manager",
     company: "Buddy Application",
-    
+
   },
   {
     testimonial:
@@ -252,7 +256,7 @@ const testimonials = [
     name: "Client",
     designation: "Founder",
     company: "MR Delivery",
-    
+
   },
   {
     testimonial:
@@ -260,27 +264,27 @@ const testimonials = [
     name: "Client",
     designation: "Project Lead",
     company: "Falah App",
-    
+
   },
 ];
 
 
 const projects = [
- {
-  name: "Buddy App",
-  description:
-    "Built an intelligent service-matching platform (Buddy App) that connects customers with nearby workers using real-time bidding, smart job recommendations, and automated notifications. Integrated location-based filters, radius expansion logic, and a streamlined booking workflow for fast worker assignment.",
-  tags: [
-    { name: "laravel", color: "red-text-gradient" },
-    { name: "react", color: "blue-text-gradient" },
-    { name: "php", color: "green-text-gradient" },
-    { name: "mysql", color: "purple-text-gradient" },
-    { name: "google-maps", color: "orange-text-gradient" },
-    { name: "firebase-notifications", color: "pink-text-gradient" },
-  ],
-  image: buddy,
-  source_code_link: "https://github.com/",
-},
+  {
+    name: "Buddy App",
+    description:
+      "Built an intelligent service-matching platform (Buddy App) that connects customers with nearby workers using real-time bidding, smart job recommendations, and automated notifications. Integrated location-based filters, radius expansion logic, and a streamlined booking workflow for fast worker assignment.",
+    tags: [
+      { name: "laravel", color: "red-text-gradient" },
+      { name: "react", color: "blue-text-gradient" },
+      { name: "php", color: "green-text-gradient" },
+      { name: "mysql", color: "purple-text-gradient" },
+      { name: "google-maps", color: "orange-text-gradient" },
+      { name: "firebase-notifications", color: "pink-text-gradient" },
+    ],
+    image: buddy,
+    source_code_link: "https://github.com/",
+  },
 
   {
     name: "MrDelivery App",
@@ -358,7 +362,7 @@ const projects = [
     image: beeSportz,
     source_code_link: "https://github.com/",
   },
- 
+
 ];
 
 

@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 
 import { styles } from "../styles";
-import { EarthCanvas } from "./canvas";
+
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
 
@@ -32,17 +32,17 @@ const Contact = () => {
     setLoading(true);
 
     emailjs.send(
-  import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
-  import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
-  {
-    from_name: form.name,
-    to_name: "Ahmad Raza",
-    from_email: form.email,
-    to_email: "ahmedraza01272003@gmail.com",
-    message: form.message,
-  },
-  import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
-)
+      import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+      {
+        from_name: form.name,
+        to_name: "Ahmad Raza",
+        from_email: form.email,
+        to_email: "ahmedraza01272003@gmail.com",
+        message: form.message,
+      },
+      import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
+    )
       .then(
         () => {
           setLoading(false);
@@ -64,67 +64,67 @@ const Contact = () => {
   };
 
   return (
-    <div className={`xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden`}>
+    <div className={`xl:mt-12 flex justify-center overflow-hidden`}>
       <motion.div
         variants={slideIn("left", "tween", 0.2, 1)}
-        className='flex-[0.75] bg-black-100 p-8 rounded-2xl'
+        className='flex-[0.75] lg:max-w-2xl glass-effect p-8 rounded-2xl relative overflow-hidden'
       >
-        <p className={styles.sectionSubText}>Get in touch</p>
+        <div className="absolute top-0 right-0 w-32 h-32 bg-[#915EFF] opacity-10 blur-[60px] rounded-full pointer-events-none"></div>
+        <p className={`${styles.sectionSubText} text-glow`}>Get in touch</p>
         <h3 className={styles.sectionHeadText}>Contact.</h3>
 
         <form
           ref={formRef}
           onSubmit={handleSubmit}
-          className='mt-12 flex flex-col gap-8'
+          className='mt-12 flex flex-col gap-8 relative z-10'
         >
           <label className='flex flex-col'>
-            <span className='text-white font-medium mb-4'>Your Name</span>
+            <span className='text-white font-medium mb-4 tracking-wide'>YOUR NAME</span>
             <input
               type='text'
               name='name'
               value={form.name}
               onChange={handleChange}
               placeholder="What's your good name?"
-              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
+              className='bg-[#151030] py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border border-white/10 font-medium transition-all focus:border-[#915EFF] focus:shadow-[0_0_15px_rgba(145,94,255,0.3)]'
             />
           </label>
           <label className='flex flex-col'>
-            <span className='text-white font-medium mb-4'>Your email</span>
+            <span className='text-white font-medium mb-4 tracking-wide'>YOUR EMAIL</span>
             <input
               type='email'
               name='email'
               value={form.email}
               onChange={handleChange}
               placeholder="What's your web address?"
-              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
+              className='bg-[#151030] py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border border-white/10 font-medium transition-all focus:border-[#915EFF] focus:shadow-[0_0_15px_rgba(145,94,255,0.3)]'
             />
           </label>
           <label className='flex flex-col'>
-            <span className='text-white font-medium mb-4'>Your Message</span>
+            <span className='text-white font-medium mb-4 tracking-wide'>YOUR MESSAGE</span>
             <textarea
               rows={7}
               name='message'
               value={form.message}
               onChange={handleChange}
               placeholder='What you want to say?'
-              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
+              className='bg-[#151030] py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border border-white/10 font-medium transition-all focus:border-[#915EFF] focus:shadow-[0_0_15px_rgba(145,94,255,0.3)] resize-none'
             />
           </label>
 
-          <button
-            type='submit'
-            className='bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary'
-          >
-            {loading ? "Sending..." : "Send"}
-          </button>
+          <div className="w-full flex justify-start">
+            <button
+              type='submit'
+              className="group relative inline-flex items-center justify-center px-8 py-3 font-bold text-white transition-all duration-200 bg-transparent font-lg rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#915EFF]"
+            >
+              <div className="absolute inset-0 transition-all duration-1000 opacity-70 inset-0 bg-gradient-to-r from-[#915EFF] to-[#1d1836] rounded-xl blur-lg group-hover:opacity-100 group-hover:blur-xl animate-tilt"></div>
+              <div className="relative inline-flex items-center justify-center w-full h-full px-8 py-3 text-lg bg-tertiary rounded-xl ring-1 ring-white/10 group-hover:bg-[#1d1836] transition-colors duration-200">
+                <span>{loading ? "Sending..." : "Send Message"}</span>
+                <svg className="w-5 h-5 ml-2 transition-transform duration-200 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+              </div>
+            </button>
+          </div>
         </form>
-      </motion.div>
-
-      <motion.div
-        variants={slideIn("right", "tween", 0.2, 1)}
-        className='xl:flex-1 xl:h-auto md:h-[550px] h-[350px]'
-      >
-        <EarthCanvas />
       </motion.div>
     </div>
   );
