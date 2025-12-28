@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+/* Font is now loaded in index.html with preconnect for better performance */
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"); */
 
 @tailwind base;
 @tailwind components;
@@ -11,8 +12,26 @@
   font-family: "Poppins", sans-serif;
   scroll-behavior: smooth;
   color-scheme: dark;
+}
 
+/* Performance optimizations */
+*,
+*::before,
+*::after {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
+/* Optimize animations for mobile */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 
@@ -26,12 +45,28 @@ body {
     radial-gradient(at 100% 0%, hsla(339, 49%, 30%, 1) 0, transparent 50%);
   background-attachment: fixed;
   background-size: cover;
+  /* Performance optimizations */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  will-change: scroll-position;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  body {
+    background-attachment: scroll; /* Better performance on mobile */
+  }
 }
 
 .hash-span {
   margin-top: -100px;
   padding-bottom: 100px;
   display: block;
+}
+
+/* Ensure navbar scrolls with page */
+nav {
+  position: static !important;
 }
 
 .black-gradient {
@@ -53,10 +88,23 @@ body {
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.125);
+  /* Performance optimization */
+  transform: translateZ(0);
+  will-change: transform, opacity;
+}
+
+/* Mobile optimization for glass effect */
+@media (max-width: 768px) {
+  .glass-effect {
+    backdrop-filter: blur(8px) saturate(150%);
+    -webkit-backdrop-filter: blur(8px) saturate(150%);
+  }
 }
 
 .text-glow {
   text-shadow: 0 0 20px rgba(145, 94, 255, 0.5);
+  /* Performance optimization */
+  will-change: text-shadow;
 }
 
 .orange-text-gradient {
@@ -83,6 +131,24 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
+.yellow-text-gradient {
+  background: linear-gradient(to top, #f5af19, #fbbd04);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.purple-text-gradient {
+  background: linear-gradient(to top, #804dee, #915EFF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.red-text-gradient {
+  background: linear-gradient(to top, #f12711, #e74c3c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 /* Standard Animations */
 @keyframes fadeIn {
   from {
@@ -98,6 +164,31 @@ body {
 
 .animate-fade-in {
   animation: fadeIn 0.8s ease-out forwards;
+  /* Performance optimization */
+  will-change: opacity, transform;
+}
+
+/* Optimize images */
+img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  /* Prevent layout shift */
+  max-width: 100%;
+  height: auto;
+}
+
+/* Optimize animations for mobile */
+@media (max-width: 768px) {
+  * {
+    /* Reduce animation complexity on mobile */
+    transition-duration: 0.2s !important;
+  }
+  
+  /* Disable heavy effects on mobile */
+  .glass-effect {
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
 }
 
 /* Loader Styles */

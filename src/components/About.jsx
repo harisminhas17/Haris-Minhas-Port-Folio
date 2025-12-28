@@ -11,21 +11,30 @@ gsap.registerPlugin(ScrollTrigger);
 
 const useGsap = (elementRef, animation, delay = 0) => {
   useEffect(() => {
-    if (elementRef.current) {
-      gsap.fromTo(
-        elementRef.current,
-        animation.from,
-        {
-          ...animation.to,
-          delay,
-          scrollTrigger: {
-            trigger: elementRef.current,
-            start: "top 85%",
-            toggleActions: "play none none reverse",
-          },
+    if (!elementRef.current) return;
+
+    const anim = gsap.fromTo(
+      elementRef.current,
+      animation.from,
+      {
+        ...animation.to,
+        delay,
+        scrollTrigger: {
+          trigger: elementRef.current,
+          start: "top 85%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+
+    return () => {
+      anim.kill();
+      ScrollTrigger.getAll().forEach(trigger => {
+        if (trigger.vars.trigger === elementRef.current) {
+          trigger.kill();
         }
-      );
-    }
+      });
+    };
   }, [elementRef, animation, delay]);
 };
 
@@ -37,12 +46,21 @@ const ServiceCard = ({ index, title, icon, description }) => {
   }, index * 0.2);
 
   return (
-    <div className="xs:w-[250px] w-full transform transition-all duration-300 hover:scale-105">
-      <div ref={cardRef} className="w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card">
-        <div className="bg-tertiary rounded-[20px] py-5 px-6 min-h-[320px] flex justify-center items-center flex-col glass-effect transition-all hover:bg-opacity-80">
-          <img src={icon} alt="web-development" className="w-16 h-16 object-contain drop-shadow-lg mb-4" />
-          <h3 className="text-white text-[20px] font-bold text-center tracking-wide mb-2">{title}</h3>
-          <p className="text-secondary text-[14px] text-center leading-normal">
+    <div className="xs:w-[250px] w-full h-full transform transition-all duration-300 hover:scale-105">
+      <div ref={cardRef} className="w-full h-full green-pink-gradient p-[1px] rounded-[20px] shadow-card">
+        <div className="bg-tertiary rounded-[20px] py-6 px-6 h-full min-h-[320px] flex flex-col items-center justify-center glass-effect transition-all hover:bg-opacity-80">
+          <div className="flex-shrink-0 mb-5 h-16 w-16 flex items-center justify-center">
+            <img 
+              src={icon} 
+              alt="web-development" 
+              className="w-full h-full max-w-16 max-h-16 object-contain drop-shadow-lg brightness-110 contrast-110" 
+              style={{ filter: 'brightness(1.2) contrast(1.1) saturate(1.2)' }}
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <h3 className="text-white text-[24px] font-bold text-center tracking-wide mb-4 flex-shrink-0 leading-tight">{title}</h3>
+          <p className="text-secondary text-[16px] text-center leading-relaxed">
             {description}
           </p>
         </div>
@@ -78,7 +96,7 @@ const About = () => {
         <div className="glass-effect p-8 rounded-2xl border-l-4 border-[#915EFF] relative overflow-hidden group">
           <div className="absolute top-0 right-0 w-24 h-24 bg-[#915EFF] opacity-10 blur-[50px] rounded-full group-hover:opacity-20 transition-opacity duration-500"></div>
           <p ref={paragraphRef} className="text-secondary text-[17px] max-w-full leading-[32px]">
-            I am a Full Stack Engineer dedicated to architecting high-performance, scalable web solutions. With deep expertise in Laravel, PHP, and modern frontend ecosystems, I transform complex requirements into seamless, user-centric applications. Passionate about innovation, I am actively integrating AI and Python-based ML models to deliver intelligent, future-ready business solutions that drive measurable growth.
+            I engineer high-impact digital solutions by merging complex logic with intuitive design. As a Full Stack Developer, I architect intelligent, scalable systems that drive efficiency and growth. With expertise spanning Laravel, PHP, React, and modern frontend technologies, I transform ambitious ideas into seamless, user-centric applications. Passionate about innovation, I'm actively integrating AI and machine learning capabilities to deliver intelligent, future-ready solutions that solve real-world challenges and create measurable business value.
           </p>
         </div>
       </div>
@@ -97,7 +115,7 @@ const About = () => {
           </div>
         </a>
       </div>
-      <div className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-items-center gap-10 relative z-10">
+      <div className="mt-12 mb-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-items-stretch items-stretch gap-10 relative z-10">
         {services.map((service, index) => (
           <ServiceCard key={service.title} index={index} {...service} />
         ))}

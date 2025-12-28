@@ -12,6 +12,16 @@ import {
   beeSportz,
   explorerBees,
 
+  // Experience Logos
+  beesportzLogo,
+  buddyLogo,
+  ensydLogo,
+  falahLogo,
+  mrdeliveryLogo,
+  tokenestateLogo,
+  explorerbeesLogo,
+  travelAppLogo,
+
   // Experience/Project placeholders
   church,
   hrm,
@@ -25,6 +35,12 @@ import {
   mobile,
   backend,
   creator,
+  
+  // New Service Icons
+  fullstackService,
+  aiMlService,
+  backendService,
+  databaseService,
 
   // Tech Icons
   html,
@@ -65,22 +81,22 @@ export const navLinks = [
 const services = [
   {
     title: "Full Stack Developer",
-    icon: web,
+    icon: fullstackService,
     description: "Building end-to-end web applications with seamless integration and high performance.",
   },
   {
     title: "AI & ML Solutions",
-    icon: mobile,
+    icon: aiMlService,
     description: "Developing intelligent models and chatbots to automate processes and deliver insights.",
   },
   {
     title: "Backend Architecture",
-    icon: backend,
+    icon: backendService,
     description: "Designing robust, scalable server-side systems for data-intensive applications.",
   },
   {
     title: "Database Design",
-    icon: creator,
+    icon: databaseService,
     description: "Optimizing data schemas and storage solutions for reliability and speed.",
   },
 ];
@@ -151,7 +167,7 @@ const experiences = [
   {
     title: "Bee Sportz",
     company_name: "Bee Sportz",
-    icon: beeSportz || "BS",
+    icon: beesportzLogo || "BS",
     iconBg: "#E6DEDD",
     date: "Sept 2025 - Present",
     points: [
@@ -164,7 +180,7 @@ const experiences = [
   {
     title: "Token Estate",
     company_name: "Token Estate",
-    icon: tokenEstate || "TE",
+    icon: tokenestateLogo || "TE",
     iconBg: "#383E56",
     date: "June 2025 - August 2025",
     points: [
@@ -177,7 +193,7 @@ const experiences = [
   {
     title: "Falah App",
     company_name: "Falah App",
-    icon: falahApp || "FA",
+    icon: falahLogo || "FA",
     iconBg: "#FFEFDD",
     date: "June 2025",
     points: [
@@ -190,7 +206,7 @@ const experiences = [
   {
     title: "Buddy App",
     company_name: "Buddy App",
-    icon: buddy || "BA",
+    icon: buddyLogo || "BA",
     iconBg: "#DDEEFF",
     date: "March 2025 - May 2025",
     points: [
@@ -203,7 +219,7 @@ const experiences = [
   {
     title: "Mr. Delivery",
     company_name: "Mr. Delivery",
-    icon: laundaryday || "MD",
+    icon: mrdeliveryLogo || "MD",
     iconBg: "#F0F0F0",
     date: "Nov 2024 - Feb 2025",
     points: [
@@ -216,7 +232,7 @@ const experiences = [
   {
     title: "Software Testing Intern",
     company_name: "Ensyd Technologies Pvt Ltd",
-    icon: mightymedia || "ET",
+    icon: ensydLogo || "ET",
     iconBg: "#E6DEDD",
     date: "Sept 2024 - Oct 2024",
     points: [
@@ -229,7 +245,7 @@ const experiences = [
   {
     title: "Travel App (FYP)",
     company_name: "Travel App (FYP)",
-    icon: trektooicon || "TA",
+    icon: travelAppLogo || "TA",
     iconBg: "#383E56",
     date: "March 2024 - Aug 2024",
     points: [
@@ -283,6 +299,7 @@ const projects = [
       { name: "firebase-notifications", color: "pink-text-gradient" },
     ],
     image: buddy,
+    logo: buddyLogo,
     source_code_link: "https://github.com/",
   },
 
@@ -300,6 +317,7 @@ const projects = [
       { name: "google-maps", color: "yellow-text-gradient" },
     ],
     image: mrDelivery,
+    logo: mrdeliveryLogo,
     source_code_link: "https://github.com/",
   },
   {
@@ -315,6 +333,7 @@ const projects = [
       { name: "sos-system", color: "pink-text-gradient" },
     ],
     image: falahApp,
+    logo: falahLogo,
     source_code_link: "https://github.com/",
   },
   {
@@ -330,6 +349,7 @@ const projects = [
       { name: "tokenization", color: "pink-text-gradient" },
     ],
     image: tokenEstate,
+    logo: tokenestateLogo,
     source_code_link: "https://github.com/",
   },
   {
@@ -345,6 +365,7 @@ const projects = [
       { name: "api-integration", color: "pink-text-gradient" },
     ],
     image: explorerBees,
+    logo: explorerbeesLogo,
     source_code_link: "https://github.com/",
   },
   {
@@ -360,6 +381,7 @@ const projects = [
       { name: "api-development", color: "pink-text-gradient" },
     ],
     image: beeSportz,
+    logo: beesportzLogo,
     source_code_link: "https://github.com/",
   },
 

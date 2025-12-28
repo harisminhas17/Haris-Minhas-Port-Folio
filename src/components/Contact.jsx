@@ -36,9 +36,9 @@ const Contact = () => {
       import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
       {
         from_name: form.name,
-        to_name: "Ahmad Raza",
+        to_name: "Haris Minhas",
         from_email: form.email,
-        to_email: "ahmedraza01272003@gmail.com",
+        to_email: "harisminhas0017@gmail.com",
         message: form.message,
       },
       import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
@@ -64,7 +64,7 @@ const Contact = () => {
   };
 
   return (
-    <div className={`xl:mt-12 flex justify-center overflow-hidden`}>
+    <div className={`mt-12 xl:-mt-10 flex justify-center overflow-hidden`}>
       <motion.div
         variants={zoomIn(0.2, 0.5)}
         className='flex-[0.75] lg:max-w-2xl glass-effect p-8 rounded-2xl relative overflow-hidden'

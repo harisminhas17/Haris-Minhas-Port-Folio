@@ -8,7 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Tech = () => {
   useEffect(() => {
-    gsap.fromTo(
+    const animation = gsap.fromTo(
       ".tech-icon", 
       {
         opacity: 0,
@@ -27,6 +27,15 @@ const Tech = () => {
         },
       }
     );
+
+    return () => {
+      animation.kill();
+      ScrollTrigger.getAll().forEach(trigger => {
+        if (trigger.vars.trigger === ".tech-icons-wrapper") {
+          trigger.kill();
+        }
+      });
+    };
   }, []);
 
   return (
@@ -38,6 +47,8 @@ const Tech = () => {
               src={technology.icon}
               alt={technology.name}
               className="tech-icon w-full h-full object-contain"
+              loading="lazy"
+              decoding="async"
             />
           </div>
         ))}

@@ -99,15 +99,15 @@ const Footer = () => {
         </div>
 
         {/* Contact Section */}
-        <div className="flex flex-col gap-4 md:items-end">
+        <div className="flex flex-col gap-4">
           <h3 className="text-xl font-bold text-white tracking-wide border-b-2 border-[#915EFF] w-fit pb-1">Contact</h3>
-          <div className="flex flex-col gap-3 text-[15px] text-secondary md:text-right">
-            <p className="hover:text-white transition-colors cursor-pointer">
+          <div className="flex flex-col gap-3 text-[15px] text-secondary">
+            <div className="hover:text-white transition-colors cursor-pointer">
               <span className="font-semibold text-[#915EFF]">Email:</span> harisminhas0017@gmail.com
-            </p>
-            <p className="hover:text-white transition-colors">
-              <span className="font-semibold text-[#915EFF]">Location:</span> ATS Old Airport Road, <br /> Chaklala Cantt Rawalpindi Pakistan
-            </p>
+            </div>
+            <div className="hover:text-white transition-colors">
+              <span className="font-semibold text-[#915EFF]">Location:</span> ATS Old Airport Road, Chaklala Cantt Rawalpindi Pakistan
+            </div>
           </div>
         </div>
       </div>

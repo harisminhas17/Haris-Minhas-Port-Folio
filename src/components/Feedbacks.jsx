@@ -15,9 +15,10 @@ const FeedbackCard = ({ index, testimonial, name, designation, company, image })
 
   useEffect(() => {
     const el = cardRef.current;
+    if (!el) return;
 
     // Add the ScrollTrigger animation with GSAP
-    gsap.fromTo(
+    const animation = gsap.fromTo(
       el,
       {
         opacity: 0,
@@ -35,29 +36,36 @@ const FeedbackCard = ({ index, testimonial, name, designation, company, image })
         },
       }
     );
+
+    return () => {
+      animation.kill();
+      ScrollTrigger.getAll().forEach(trigger => {
+        if (trigger.vars.trigger === el) {
+          trigger.kill();
+        }
+      });
+    };
   }, []);
 
   return (
     <div
       ref={cardRef}
-      className="bg-black-200 p-10 rounded-3xl xs:w-[320px] w-full"
+      className="bg-black-200 p-10 rounded-3xl xs:w-[320px] w-full flex flex-col h-full"
     >
-      <p className="text-white font-black text-[48px]">"</p>
+      <p className="text-white font-black text-[48px] leading-none mb-0">"</p>
 
-      <div className="mt-1">
-        <p className="text-white tracking-wider text-[18px]">{testimonial}</p>
+      <div className="mt-1 flex-1 flex flex-col">
+        <p className="text-white tracking-wider text-[18px] leading-[1.6] text-left flex-1">{testimonial}</p>
 
-        <div className="mt-7 flex justify-between items-center gap-1">
-          <div className="flex-1 flex flex-col">
-            <p className="text-white font-medium text-[16px]">
+        <div className="mt-7 flex justify-start items-center gap-3">
+          <div className="flex flex-col">
+            <p className="text-white font-medium text-[16px] leading-tight">
               <span className="blue-text-gradient">@</span> {name}
             </p>
-            <p className="mt-1 text-secondary text-[12px]">
+            <p className="mt-1 text-secondary text-[12px] leading-tight">
               {designation} of {company}
             </p>
           </div>
-
-         
         </div>
       </div>
     </div>
@@ -66,7 +74,7 @@ const FeedbackCard = ({ index, testimonial, name, designation, company, image })
 
 const Feedbacks = () => {
   return (
-    <div className={`mt-12 bg-black-100 rounded-[20px]`}>
+    <div className={`mt-12 md:-mt-20 pb-14 md:pb-5 bg-black-100 rounded-[20px] md:-mb-20`}>
       <div className={`bg-tertiary rounded-2xl ${styles.padding} min-h-[300px]`}>
         <div>
           <p className={styles.sectionSubText}>What others say</p>
@@ -74,7 +82,7 @@ const Feedbacks = () => {
         </div>
       </div>
       <div
-        className={`-mt-20 pb-14 ${styles.paddingX} grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10  justify-items-center`}
+        className={`-mt-20 pb-14 ${styles.paddingX} grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 justify-items-stretch`}
       >
         {testimonials.map((testimonial, index) => (
           <FeedbackCard key={testimonial.name} index={index} {...testimonial} />

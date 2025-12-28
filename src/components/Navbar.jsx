@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -9,30 +9,11 @@ import { harisMinhas, menu, close } from "../assets";
 const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      if (scrollTop > 100) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   return (
     <nav
-      className={`${styles.paddingX
-        } w-full flex items-center py-5 fixed z-50 transition-all duration-500 ease-in-out ${scrolled
-          ? "glass-effect top-4 rounded-full max-w-7xl mx-auto left-0 right-0 shadow-[0_5px_30px_-15px_rgba(145,94,255,0.4)] border border-[#915EFF]/20 py-3"
-          : "bg-transparent top-0"
-        }`}
+      className={`${styles.paddingX} w-full flex items-center py-5 bg-transparent`}
+      style={{ position: 'static' }}
     >
       <div className='w-full flex justify-between items-center max-w-7xl mx-auto'>
         <Link
@@ -43,11 +24,15 @@ const Navbar = () => {
             window.scrollTo(0, 0);
           }}
         >
-          <img
-            src={harisMinhas}
-            alt='Haris Minhas'
-            className='w-10 h-10 rounded-full object-cover border-2 border-[#915EFF] shadow-[0_0_15px_#915EFF] group-hover:shadow-[0_0_25px_#915EFF] transition-shadow duration-300'
-          />
+          <div className='w-10 h-10 rounded-full overflow-hidden border-2 border-[#915EFF] shadow-[0_0_15px_#915EFF] group-hover:shadow-[0_0_25px_#915EFF] transition-shadow duration-300'>
+            <img
+              src={harisMinhas}
+              alt='Haris Minhas'
+              className='w-full h-full object-cover'
+              loading="eager"
+              decoding="async"
+            />
+          </div>
           <p className='text-white text-[18px] font-bold cursor-pointer flex items-center'>
             <span className="group-hover:text-[#915EFF] transition-colors duration-300">Haris Minhas</span> &nbsp;
             <span className='sm:block hidden text-secondary text-[14px] font-normal tracking-wide'>| Full Stack Developer</span>

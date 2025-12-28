@@ -25,6 +25,8 @@ const ExperienceCard = ({ experience }) => {
             alt={experience.company_name}
             className="w-[90%] h-[90%] object-contain"
             style={{ borderRadius: "50%" }}
+            loading="lazy"
+            decoding="async"
             onError={(e) => {
               console.error(`Failed to load image: ${experience.icon}`);
               e.target.src = "https://via.placeholder.com/48"; // Fallback image
@@ -61,7 +63,7 @@ const ExperienceCard = ({ experience }) => {
 const Experience = () => {
   return (
     <>
-      <div>
+      <div className="-mt-8">
         <p className={`${styles.sectionSubText} text-center`}>
           What I have done so far
         </p>
