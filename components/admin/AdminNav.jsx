@@ -2,6 +2,8 @@
 
 import { usePathname, useRouter } from "next/navigation";
 
+import ThemeToggle from "@/components/theme/ThemeToggle";
+
 const links = [
   { href: "/admin", label: "Overview" },
   { href: "/admin/content/projects", label: "Projects" },
@@ -27,7 +29,7 @@ export default function AdminNav({ email }) {
 
   return (
     <aside className="flex w-full shrink-0 flex-col gap-8 border-b border-line p-5 lg:h-dvh lg:w-64 lg:border-b-0 lg:border-r lg:p-6">
-      <div>
+      <div className="flex items-center justify-between gap-3">
         <a href="/admin" className="flex items-center gap-3">
           <span className="flex h-8 w-8 items-center justify-center rounded-full border border-line-strong font-mono text-[10px] text-muted">
             HM
@@ -36,6 +38,7 @@ export default function AdminNav({ email }) {
             Admin
           </span>
         </a>
+        <ThemeToggle />
       </div>
 
       <nav aria-label="Admin" className="flex flex-wrap gap-1.5 lg:flex-col">

@@ -82,25 +82,26 @@ export default function Navbar({ content }) {
         <div className="flex items-center gap-2 md:hidden">
           <ThemeToggle />
           <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          className="flex h-10 w-10 items-center justify-center md:hidden"
-          aria-expanded={open}
-          aria-label={open ? "Close menu" : "Open menu"}
-        >
-          <span className="relative block h-3 w-6">
-            <span
-              className={`absolute left-0 top-0 h-px w-6 bg-ink transition-transform duration-300 ${
-                open ? "translate-y-1.5 rotate-45" : ""
-              }`}
-            />
-            <span
-              className={`absolute bottom-0 left-0 h-px w-6 bg-ink transition-transform duration-300 ${
-                open ? "-translate-y-1.5 -rotate-45" : ""
-              }`}
-            />
-          </span>
-        </button>
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            className="flex h-10 w-10 items-center justify-center"
+            aria-expanded={open}
+            aria-label={open ? "Close menu" : "Open menu"}
+          >
+            <span className="relative block h-3 w-6">
+              <span
+                className={`absolute left-0 top-0 h-px w-6 bg-ink transition-transform duration-300 ${
+                  open ? "translate-y-1.5 rotate-45" : ""
+                }`}
+              />
+              <span
+                className={`absolute bottom-0 left-0 h-px w-6 bg-ink transition-transform duration-300 ${
+                  open ? "-translate-y-1.5 -rotate-45" : ""
+                }`}
+              />
+            </span>
+          </button>
+        </div>
       </div>
 
       <AnimatePresence>

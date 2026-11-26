@@ -2,6 +2,7 @@ import { redirect } from "next/navigation";
 
 import { getSession } from "@/lib/auth/session";
 import LoginForm from "@/components/admin/LoginForm";
+import ThemeToggle from "@/components/theme/ThemeToggle";
 
 export default async function LoginPage() {
   const session = await getSession();
@@ -11,7 +12,11 @@ export default async function LoginPage() {
   }
 
   return (
-    <main className="flex min-h-dvh items-center justify-center px-6 py-16">
+    <main className="relative flex min-h-dvh items-center justify-center px-6 py-16">
+      <div className="absolute right-5 top-5">
+        <ThemeToggle />
+      </div>
+
       <div className="w-full max-w-sm">
         <div className="mb-10">
           <span className="flex h-9 w-9 items-center justify-center rounded-full border border-line-strong font-mono text-[11px] text-muted">
