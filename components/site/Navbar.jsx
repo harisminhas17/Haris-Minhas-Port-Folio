@@ -40,8 +40,17 @@ export default function Navbar({ content }) {
           className="group flex items-center gap-3"
           aria-label={`${content.meta.siteName} — home`}
         >
-          <span className="flex h-8 w-8 items-center justify-center rounded-full border border-line-strong font-mono text-[11px] transition-colors group-hover:border-accent group-hover:text-accent">
-            HM
+          <span className="flex h-8 w-8 items-center justify-center overflow-hidden rounded-full border border-line-strong font-mono text-[11px] transition-colors group-hover:border-accent group-hover:text-accent">
+            {content.meta.avatar ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={content.meta.avatar}
+                alt={content.meta.siteName}
+                className="h-full w-full object-cover object-top"
+              />
+            ) : (
+              "HM"
+            )}
           </span>
           <span className="hidden text-sm font-medium tracking-tight sm:block">
             {content.meta.siteName}

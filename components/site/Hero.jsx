@@ -55,9 +55,10 @@ export default function Hero({ content }) {
             className="relative col-span-1 min-h-[340px] overflow-hidden bg-surface md:col-span-5 md:min-h-[420px]"
           >
             <Image
-              src="/assets/Haris%20Minhas.png"
-              alt="Haris Minhas"
+              src={hero.image || "/assets/Haris%20Minhas.png"}
+              alt={`${content.meta.siteName}`}
               fill
+              unoptimized
               sizes="(max-width: 768px) 100vw, 40vw"
               className="object-cover object-top grayscale transition-all duration-700 ease-expo hover:grayscale-0"
               priority

@@ -17,7 +17,7 @@ const links = [
   { href: "/admin/messages", label: "Messages" },
 ];
 
-export default function AdminNav({ email }) {
+export default function AdminNav({ email, avatar, name }) {
   const pathname = usePathname();
   const router = useRouter();
 
@@ -31,8 +31,17 @@ export default function AdminNav({ email }) {
     <aside className="flex w-full shrink-0 flex-col gap-8 border-b border-line p-5 lg:h-dvh lg:w-64 lg:border-b-0 lg:border-r lg:p-6">
       <div className="flex items-center justify-between gap-3">
         <a href="/admin" className="flex items-center gap-3">
-          <span className="flex h-8 w-8 items-center justify-center rounded-full border border-line-strong font-mono text-[10px] text-muted">
-            HM
+          <span className="flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-full border border-line-strong font-mono text-[10px] text-muted">
+            {avatar ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={avatar}
+                alt={name ? `${name} profile` : "Profile"}
+                className="h-full w-full object-cover object-top"
+              />
+            ) : (
+              "HM"
+            )}
           </span>
           <span className="font-display text-sm font-medium tracking-tight">
             Admin

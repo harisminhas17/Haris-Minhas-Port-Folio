@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import OverviewGreeting from "@/components/admin/OverviewGreeting";
 import { getSql } from "@/lib/db";
 import { collections } from "@/lib/admin/collections";
 
@@ -31,12 +32,7 @@ export default async function AdminOverview() {
   return (
     <div>
       <div className="border-b border-line pb-6">
-        <h1 className="font-display text-2xl font-semibold tracking-tight">
-          Overview
-        </h1>
-        <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.14em] text-faint">
-          Content management
-        </p>
+        <OverviewGreeting initialIso={new Date().toISOString()} />
       </div>
 
       {!counts ? (

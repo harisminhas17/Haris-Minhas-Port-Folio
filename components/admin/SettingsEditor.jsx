@@ -11,6 +11,13 @@ const sections = [
     fields: [
       { name: "siteName", label: "Site name", type: "text" },
       { name: "role", label: "Role", type: "text" },
+      {
+        name: "avatar",
+        label: "Profile image",
+        type: "image",
+        imageKind: "avatar",
+        hint: "Square, shown in the nav and admin",
+      },
       { name: "availabilityNote", label: "Availability note", type: "text" },
       { name: "available", label: "Show availability dot", type: "boolean" },
     ],
@@ -22,6 +29,14 @@ const sections = [
       { name: "eyebrow", label: "Eyebrow", type: "text" },
       { name: "headlineLines", label: "Headline lines", type: "list", hint: "One per line" },
       { name: "intro", label: "Intro", type: "textarea", rows: 4 },
+      {
+        name: "image",
+        label: "Hero image",
+        type: "image",
+        imageKind: "hero",
+        preview: "portrait",
+        hint: "Portrait photo in the hero panel",
+      },
       { name: "phone", label: "Phone", type: "text" },
       { name: "email", label: "Email", type: "text" },
     ],

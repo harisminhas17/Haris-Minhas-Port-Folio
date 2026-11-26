@@ -2,7 +2,10 @@
 
 import { useState } from "react";
 
-export function ImageField({ value, onChange, label }) {
+import { getImageRule, validateImageFile } from "@/lib/admin/image-rules";
+
+export function ImageField({ value, onChange, label, imageKind = "default", preview = "square" }) {
+  const rule = getImageRule(imageKind);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
 
@@ -11,9 +14,17 @@ export function ImageField({ value, onChange, label }) {
     setBusy(true);
     setError("");
 
+    const invalid = await validateImageFile(file, rule);
+    if (invalid) {
+      setError(invalid);
+      setBusy(false);
+      return;
+    }
+
     try {
       const body = new FormData();
       body.append("file", file);
+      body.append("kind", imageKind);
       const res = await fetch("/api/admin/media", { method: "POST", body });
       const data = await res.json();
 
@@ -30,13 +41,19 @@ export function ImageField({ value, onChange, label }) {
     }
   };
 
+  const previewClass =
+    preview === "portrait" ? "h-full w-full object-cover object-top" : "h-full w-full object-contain p-1";
+  const boxClass = preview === "portrait" ? "h-20 w-16" : "h-16 w-16";
+
   return (
     <div>
       <div className="flex items-center gap-3">
-        <div className="flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-md border border-line bg-surface">
+        <div
+          className={`flex ${boxClass} shrink-0 items-center justify-center overflow-hidden rounded-md border border-line bg-surface`}
+        >
           {value ? (
             // eslint-disable-next-line @next/next/no-img-element
-            <img src={value} alt="" className="h-full w-full object-contain p-1" />
+            <img src={value} alt="" className={previewClass} />
           ) : (
             <span className="font-mono text-[9px] uppercase tracking-widest text-faint">
               None
@@ -52,17 +69,35 @@ export function ImageField({ value, onChange, label }) {
             className="field-line !py-1.5 text-[13px]"
             aria-label={label}
           />
-          <label className="mt-2 inline-flex cursor-pointer items-center gap-2 text-[12px] text-muted transition-colors hover:text-ink">
-            <input
-              type="file"
-              accept="image/*"
-              className="sr-only"
-              onChange={(e) => upload(e.target.files?.[0])}
-            />
-            <span className="rounded-md border border-line-strong px-2 py-1">
-              {busy ? "Uploading…" : "Upload"}
-            </span>
-          </label>
+          <div className="mt-2 flex flex-wrap items-center gap-2">
+            <label className="inline-flex cursor-pointer items-center gap-2 text-[12px] text-muted transition-colors hover:text-ink">
+              <input
+                type="file"
+                accept={rule.formats.join(",")}
+                className="sr-only"
+                onChange={(e) => upload(e.target.files?.[0])}
+              />
+              <span className="rounded-md border border-line-strong px-2 py-1">
+                {busy ? "Uploading…" : "Upload"}
+              </span>
+            </label>
+            {value && (
+              <button
+                type="button"
+                onClick={() => {
+                  onChange("");
+                  setError("");
+                }}
+                className="rounded-md px-2 py-1 text-[12px] text-muted transition-colors hover:text-danger"
+              >
+                Remove
+              </button>
+            )}
+          </div>
+          <p className="mt-1.5 text-[10px] leading-relaxed text-faint">
+            {rule.formatHint} · max {rule.byteHint}
+            {rule.enforceDimensions ? ` · ${rule.dimensionHint}` : ""}
+          </p>
           {error && <p className="mt-1 text-[11px] text-danger">{error}</p>}
         </div>
       </div>
@@ -74,7 +109,15 @@ export function Field({ field, value, onChange }) {
   const id = `field-${field.name}`;
 
   if (field.type === "image") {
-    return <ImageField value={value} onChange={onChange} label={field.label} />;
+    return (
+      <ImageField
+        value={value}
+        onChange={onChange}
+        label={field.label}
+        imageKind={field.imageKind}
+        preview={field.preview}
+      />
+    );
   }
 
   if (field.type === "textarea") {

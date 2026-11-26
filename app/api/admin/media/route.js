@@ -1,8 +1,12 @@
 import { requireSession } from "@/lib/auth/guard";
 import { getSql } from "@/lib/db";
-
-const ALLOWED = ["image/png", "image/jpeg", "image/webp", "image/gif", "image/svg+xml", "image/avif"];
-const MAX_BYTES = 5 * 1024 * 1024;
+import {
+  checkImageBytes,
+  checkImageDimensions,
+  checkImageFormat,
+  getImageRule,
+} from "@/lib/admin/image-rules";
+import { readImageDimensions } from "@/lib/admin/image-size";
 
 export async function POST(request) {
   const auth = await requireSession();
@@ -25,18 +29,19 @@ export async function POST(request) {
     return Response.json({ error: "No file provided" }, { status: 422 });
   }
 
-  if (!ALLOWED.includes(file.type)) {
-    return Response.json(
-      { error: `Unsupported type. Use PNG, JPG, WEBP, GIF, AVIF or SVG.` },
-      { status: 415 }
-    );
-  }
+  const rule = getImageRule(form.get("kind") || "default");
 
-  if (file.size > MAX_BYTES) {
-    return Response.json({ error: "File is larger than 5 MB" }, { status: 413 });
-  }
+  const formatError = checkImageFormat(file.type, rule);
+  if (formatError) return Response.json({ error: formatError }, { status: 415 });
+
+  const byteError = checkImageBytes(file.size, rule);
+  if (byteError) return Response.json({ error: byteError }, { status: 413 });
 
   const buffer = Buffer.from(await file.arrayBuffer());
+
+  const dimensionError = checkImageDimensions(readImageDimensions(buffer), rule);
+  if (dimensionError) return Response.json({ error: dimensionError }, { status: 422 });
+
   const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, "-").slice(0, 120);
 
   const rows = await sql`
